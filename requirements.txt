@@ -1,0 +1,4 @@
+pytest == 6.1.2
+requests == 2.7.0
+simple-settings == 1.0.0
+selenium==3.141
