@@ -6,11 +6,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
-@pytest.hookimpl
-def pytest_configure(config):
-    os.environ.setdefault('SIMPLE_SETTINGS', 'settings.settings')
-
-
 @pytest.fixture(scope='function')
 def browser():
     caps = DesiredCapabilities.CHROME

@@ -49,7 +49,7 @@ class TestBasePage:
         page.check_button(text='test', button_id=1, is_clickable=False)
         create_templ_with_hundred_button_clickable()
         browser.refresh()
-        button_number = random.randint(1, 10)
+        button_number = page.get_random_button_id()
         page.check_button(text=f'test_label{button_number}', button_id=button_number, is_clickable=True)
 
     def test_delete_template(self, browser):
