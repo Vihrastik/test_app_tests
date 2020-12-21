@@ -113,33 +113,7 @@ class TestInstallTemplates:
         assert response.status_code == 404
         assert ast.literal_eval(response.text)['message'] == f'No template with tmpl_id={file_name} found!'
 
-    @pytest.mark.parametrize('file, data',
-                             [(YamlTemplateData.file_no_id.value.name,
-                               YamlTemplateData.file_no_id.value.data),
-                              (YamlTemplateData.file_no_label.value.name,
-                               YamlTemplateData.file_no_label.value.data),
-                              (YamlTemplateData.file_invalid_depend.value.name,
-                               YamlTemplateData.file_invalid_depend.value.data),
-                              (YamlTemplateData.file_wrong_depend.value.name,
-                               YamlTemplateData.file_wrong_depend.value.data),
-                              (YamlTemplateData.file_no_label_value.value.name,
-                               YamlTemplateData.file_no_label_value.value.data),
-                              (YamlTemplateData.file_no_id_value.value.name,
-                               YamlTemplateData.file_no_id_value.value.data),
-                              (YamlTemplateData.file_invalid.value.name,
-                               YamlTemplateData.file_invalid.value.data),
-                              (YamlTemplateData.file_two_similar_id.value.name,
-                               YamlTemplateData.file_two_similar_id.value.data),
-                              ],
-                             ids=['no_id', 'no_label', 'invalid_depends', 'wrong_depends', 'no_label_value',
-                                  'no_id_value', 'file_invalid', 'two_similar_id'])
-    def test_install_incorrect_template(self, file, data):
-        upload_template(file_name=file, file=data)
-        short_name = extract_name(file)
-        response = install_template(short_name)
-        assert response.status_code == 500
-
-
+        
 class TestE2E:
     def test_create_and_check_template_list(self):
         params = {
