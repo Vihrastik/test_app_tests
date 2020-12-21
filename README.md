@@ -1,4 +1,7 @@
 # test_app_tests
+
+Tested app: https://github.com/dgusakov/test_app
+
 Tests are divided into two groups:
 - src/tests/api_tests;
 - src/tests/web_ui_tests.
